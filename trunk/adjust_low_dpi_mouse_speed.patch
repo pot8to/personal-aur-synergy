@@ -1,0 +1,16 @@
+diff --git a/src/lib/server/Server.cpp b/src/lib/server/Server.cpp
+index 2d7a2da..bc11104 100644
+--- a/src/lib/server/Server.cpp
++++ b/src/lib/server/Server.cpp
+@@ -1911,7 +1911,10 @@ Server::sendDragInfo(BaseClientProxy* newScreen)
+ void
+ Server::onMouseMoveSecondary(SInt32 dx, SInt32 dy)
+ {
+-	LOG((CLOG_DEBUG2 "onMouseMoveSecondary %+d,%+d", dx, dy));
++	LOG((CLOG_DEBUG1 "onMouseMoveSecondary %+d,%+d", dx, dy));
++	dx = dx / 2;
++	dy = dy / 2;
++	LOG((CLOG_DEBUG1 "Adjusted to %+d,%+d", dx, dy));
+ 
+ 	// mouse move on secondary (client's) screen
+ 	assert(m_active != NULL);
